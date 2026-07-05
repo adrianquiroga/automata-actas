@@ -19,8 +19,9 @@ El proyecto cuenta con tres modos de funcionamiento adaptados a las necesidades 
 2. **Guardar una copia (Recomendado):**
    - Una vez abierto, ve a **Archivo -> Guardar una copia en Drive** para guardarlo en tu cuenta personal de Google Drive.
 3. **Configurar y ejecutar:**
-   - Pega tu clave de API en el campo **`API_KEY`** a la derecha.
-   - Presiona el botón de **Play** (triángulo a la izquierda).
+   - **Forma recomendada (Segura):** Haz clic en el icono de llave (🔑) en el menú lateral izquierdo de Google Colab, agrega un secreto con el nombre `GEMINI_API_KEY`, pega tu clave en el valor y activa el interruptor de acceso al cuaderno.
+   - **Forma interactiva:** Si no usas secretos, al presionar **Play** (triángulo a la izquierda) se te solicitará la API key de forma oculta en una casilla segura de contraseña.
+   - Selecciona el **`NIVEL_DETALLE`** a la derecha y presiona **Play**.
    - Sube los archivos cuando el programa lo solicite.
 
 ### Opción 2: Subiendo el archivo `.ipynb` a Google Drive
@@ -31,7 +32,7 @@ El proyecto cuenta con tres modos de funcionamiento adaptados a las necesidades 
    - Se mostrará con el icono naranja de Colab (`CO`).
 2. **Abrir y ejecutar:**
    - Haz doble clic sobre el archivo en Drive para abrirlo en Google Colab.
-   - Introduce tu **`API_KEY`**, selecciona el **`NIVEL_DETALLE`** y ejecuta presionando el botón de **Play**.
+   - Configura de forma segura tu **`GEMINI_API_KEY`** (en los Secretos de Colab) o introdúcela en la casilla interactiva al ejecutar, selecciona el **`NIVEL_DETALLE`** y ejecuta presionando el botón de **Play**.
 
 *Para desarrolladores o usuarios que prefieren trabajar de forma local utilizando una interfaz de escritorio nativa.*
 

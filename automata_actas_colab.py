@@ -51,10 +51,13 @@ GUÍA DE USO PARA EL USUARIO (SECRETARÍA / ASISTENTES)
    a) Abre el enlace de Google Colab que te compartieron.
    b) Recomendado: Haz una copia en tu propio Google Drive haciendo clic en
       "Archivo" (File) -> "Guardar una copia en Drive" (Save a copy in Drive).
-   c) En el panel derecho de la celda de configuración, verás dos campos:
-      - "API_KEY": Pega allí la clave que obtuviste en el paso 1.
-      - "NIVEL_DETALLE": Selecciona qué tan detallado deseas el resumen
-        de los comentarios ("Resumido", "Medio" o "Detallado").
+   c) Configura tu clave de API de forma segura de cualquiera de estas maneras:
+      - RECOMENDADO (Secretos de Colab): Haz clic en el icono de llave (🔑)
+        en el menú lateral izquierdo de Colab, agrega un secreto llamado
+        "GEMINI_API_KEY", pega tu clave y activa el acceso del cuaderno.
+      - MODO INTERACTIVO SEGURO: Si no usas Secretos, al ejecutar la celda
+        se te solicitará la clave en una casilla oculta de contraseña.
+      - En el formulario de la derecha, selecciona el "NIVEL_DETALLE".
    d) Haz clic en el botón de reproducción (el círculo con un triángulo "Play")
       situado a la izquierda de la celda de código.
    e) El programa instalará automáticamente todo lo que necesita.
@@ -398,17 +401,30 @@ def ejecutar_automatizacion(api_key, nivel_detalle, ruta_plantilla=None, ruta_tr
 
 if __name__ == "__main__" and es_entorno_colab():
     #@title Configuración del Automatizador de Actas { display-mode: "form" }
-    API_KEY = "" #@param {type:"string"}
     NIVEL_DETALLE = "Medio" #@param ["Resumido", "Medio", "Detallado"]
     
-    if API_KEY.strip() == "":
-        print("👉 Por favor, ingresa tu API KEY de Gemini en el formulario de la derecha y ejecuta la celda.")
+    # Obtener la API_KEY de forma segura (Secrets de Colab o prompt interactivo)
+    API_KEY = ""
+    try:
+        from google.colab import userdata
+        API_KEY = userdata.get('GEMINI_API_KEY')
+    except Exception:
+        pass
+        
+    if not API_KEY:
+        import getpass
+        print("🔑 No se detectó la clave 'GEMINI_API_KEY' en los Secretos de Colab.")
+        API_KEY = getpass.getpass("Por favor, ingresa tu Gemini API Key (la entrada estará oculta y no se guardará): ").strip()
+        
+    if not API_KEY or API_KEY.strip() == "":
+        print("❌ ERROR: La clave de API de Gemini está vacía. No se puede continuar.")
     else:
         ejecutar_automatizacion(api_key=API_KEY, nivel_detalle=NIVEL_DETALLE)
 
 elif __name__ == "__main__":
     # Modo de consola normal para desarrollo o prueba local
     print("--- Modo Consola Local ---")
+    import getpass
     api_key_env = ""
     # Intentar cargar config.json si existe para comodidad en desarrollo local
     if os.path.exists("config.json"):
@@ -418,9 +434,12 @@ elif __name__ == "__main__":
         except:
             pass
             
-    api_key = input(f"Ingresa tu Gemini API Key [{api_key_env[:6]}...]: ").strip() if not api_key_env else input("Ingresa tu Gemini API Key: ").strip()
-    if not api_key and api_key_env:
-        api_key = api_key_env
+    if api_key_env:
+        api_key = getpass.getpass(f"Ingresa tu Gemini API Key [{api_key_env[:6]}...] (deja vacío para usar la guardada): ").strip()
+        if not api_key:
+            api_key = api_key_env
+    else:
+        api_key = getpass.getpass("Ingresa tu Gemini API Key: ").strip()
         
     detalle = input("Nivel de detalle (Resumido/Medio/Detallado) [Medio]: ").strip()
     if detalle not in ["Resumido", "Medio", "Detallado"]:
