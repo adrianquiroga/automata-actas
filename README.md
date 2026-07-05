@@ -1,36 +1,38 @@
 # Sistema de Automatización de Actas Institucionales (DataEng)
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/adrianquiroga/automata-actas/blob/main/automata_actas_colab.ipynb)
+
 Este sistema permite automatizar de forma inteligente la generación de actas institucionales a partir de la transcripción de reuniones, utilizando Inteligencia Artificial (Gemini 2.5 Flash) y plantillas en Microsoft Word (`.docx`).
 
 ---
 
 ## ⚡ Modos de Uso Disponibles
 
-El proyecto cuenta con dos modos de funcionamiento adaptados a las necesidades de los usuarios:
+El proyecto cuenta con tres modos de funcionamiento adaptados a las necesidades de los usuarios:
 
-### Opción 1: Ejecución en la Nube con Google Colab (Recomendada)
-*Ideal para secretarios/as y usuarios sin conocimientos técnicos, ya que no requiere instalar nada en la computadora.*
+### Opción 1: Ejecución Directa mediante Enlace de GitHub (La más fácil)
+*La secretaria simplemente hace clic en un enlace para abrir el cuaderno directamente desde GitHub en Google Colab.*
 
-#### Pasos para utilizarlo:
-1. **Obtener la Clave de API de Gemini (Gratuita):**
-   - Regístrate en [Google AI Studio](https://aistudio.google.com/) con tu cuenta de Gmail.
-   - Haz clic en **"Get API Key"** y luego en **"Create API Key"** para obtener tu clave.
-2. **Subir el cuaderno a Google Drive:**
+1. **Abrir el enlace:**
+   - Haz clic en el botón azul **"Open In Colab"** que se encuentra arriba o ingresa a este enlace:
+     [Abrir en Google Colab](https://colab.research.google.com/github/adrianquiroga/automata-actas/blob/main/automata_actas_colab.ipynb)
+2. **Guardar una copia (Recomendado):**
+   - Una vez abierto, ve a **Archivo -> Guardar una copia en Drive** para guardarlo en tu cuenta personal de Google Drive.
+3. **Configurar y ejecutar:**
+   - Pega tu clave de API en el campo **`API_KEY`** a la derecha.
+   - Presiona el botón de **Play** (triángulo a la izquierda).
+   - Sube los archivos cuando el programa lo solicite.
+
+### Opción 2: Subiendo el archivo `.ipynb` a Google Drive
+*Útil si quieres tener el archivo del cuaderno directamente guardado y organizado en tus carpetas de Google Drive.*
+
+1. **Subir el cuaderno:**
    - Sube el archivo `automata_actas_colab.ipynb` de este repositorio a tu Google Drive (por ejemplo, en la carpeta *Colab Notebooks*).
    - Se mostrará con el icono naranja de Colab (`CO`).
-3. **Ejecutar el programa:**
+2. **Abrir y ejecutar:**
    - Haz doble clic sobre el archivo en Drive para abrirlo en Google Colab.
-   - Pega tu clave de API en el campo **`API_KEY`** a la derecha de la celda de ejecución.
-   - Selecciona el **`NIVEL_DETALLE`** ("Resumido", "Medio" o "Detallado").
-   - Presiona el botón de **Play** (triángulo a la izquierda).
-4. **Cargar archivos y descargar resultado:**
-   - El script instalará automáticamente las dependencias en la nube.
-   - Haz clic en **"Elegir archivos"** para subir tu **Plantilla Word** (`.docx`) y tu **Transcripción** (`.txt`, `.docx` o `.vtt`).
-   - Al finalizar, el acta ya completada se descargará de forma automática en tu carpeta local de **Descargas**.
+   - Introduce tu **`API_KEY`**, selecciona el **`NIVEL_DETALLE`** y ejecuta presionando el botón de **Play**.
 
----
-
-### Opción 2: Ejecución Local con Interfaz Gráfica (GUI)
 *Para desarrolladores o usuarios que prefieren trabajar de forma local utilizando una interfaz de escritorio nativa.*
 
 #### Requisitos previos:
