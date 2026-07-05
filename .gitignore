@@ -1,0 +1,42 @@
+# Entorno virtual de Python
+venv/
+env/
+.env
+
+# Archivos de caché
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos temporales e internos
+.agents/
+.gemini/
+scratch/
+task.md
+implementation_plan.md
+walkthrough.md
+
+# Archivos de configuración con API Keys (¡MUY IMPORTANTE!)
+config.json
+API.txt
+API_ECISA.txt
+
+# Documentos generados y datos de prueba
+Acta_Generada_*.docx
+Actas/
+Transcripcion/
+datos_Gacheta.json
+datos_Soacha.json
+
+# Scripts de automatización local (Batch)
+*.bat
+
+# Otros scripts locales de Python (no requeridos en GitHub)
+automata_actas.py
+automata_actas_respaldo.py
+crear_notebook.py
+datos_acta.py
+generar_acta.py
+generar_mapeo_con_ia.py
+

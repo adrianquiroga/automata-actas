@@ -1,0 +1,14 @@
+Convierte la siguiente transcripción de reunión en un diccionario de Python llamado `datos`. 
+El diccionario debe contener todos los placeholders de la plantilla oficial F-2-2-16:
+
+- <<Unidad>>, <<Reunión>>, <<Fecha>>, <<Objetivo>>, <<Presidente>>, <<Secretario>>, <<Lugar>>, <<HoraInicio>>, <<HoraFin>>
+- <<Agenda1>> a <<Agenda5>>, <<AgendaVarios>>
+- <<Participante1>>, <<Participante2>>, <<Participante3>> (y más si aplica)
+- <<Comentario1>> a <<Comentario5>>, <<ComentarioVarios>> (los comentarios deben ser narrativos, completos y claros, no frases cortas)
+- <<Accion1>> a <<Accion5>>, con sus <<TipoX>>, <<ResponsableX>>, <<FechaX>>
+- <<Observaciones>>
+- <<FirmaPresidente>>, <<FirmaSecretario>>
+
+Usa la transcripción para rellenar cada campo con información fiel y detallada. 
+Los comentarios deben redactarse como síntesis narrativa de lo discutido en cada punto de la agenda, incluyendo contexto, decisiones y conclusiones. 
+Devuelve únicamente el código Python con el diccionario completo.
