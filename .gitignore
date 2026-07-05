@@ -40,3 +40,11 @@ datos_acta.py
 generar_acta.py
 generar_mapeo_con_ia.py
 
+# Archivos adicionales locales a ignorar en GitHub
+Prompt.txt
+Script_Investigacion.json
+requirements.txt
+Guia de uso en colab.docx
+
+
+
