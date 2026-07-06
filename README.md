@@ -11,7 +11,7 @@ Este sistema permite automatizar de forma inteligente la generación de actas in
 El proyecto cuenta con tres modos de funcionamiento adaptados a las necesidades de los usuarios:
 
 ### Opción 1: Ejecución Directa mediante Enlace de GitHub (La más fácil)
-*La secretaria simplemente hace clic en un enlace para abrir el cuaderno directamente desde GitHub en Google Colab.*
+*El funcionario simplemente hace clic en un enlace para abrir el cuaderno directamente desde GitHub en Google Colab.*
 
 1. **Abrir el enlace:**
    - Haz clic en el botón azul **"Open In Colab"** que se encuentra arriba o ingresa a este enlace:
